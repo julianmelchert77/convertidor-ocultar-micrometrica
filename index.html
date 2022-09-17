@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Convertidor</title>
+</head>
+<div class="contenedor">
+    <div id="contenido">
+        <header class="header">
+            <h1 class="titulo">Convertidor</h1>
+        </header>
+            <form action="#" class="formulario" id="convertir">
+                <div class="barritas-lineas">
+                    <img src="/img/ocultar-micrometrica.png" alt="Imagen microscopio" class="imagen-barras">
+                    <label class="lineas-micro" for="lineas">¿Cuántas líneas observaste?</label>
+                        <input type="text" name="lineas" value="" placeholder="medida" id="lineas-micro">
+                </div>
+                <div class="aumento">
+                    <label 
+                      class="label-aumento"
+                      for="aumento"
+                    >¿De cuánto fue el aumento?</label>
+                    <select class="aumento-select" id="aumento">
+                        <option value="">- Seleccionar -</option>
+                        <option value="1">LupaX32</option>
+                        <option value="2">LupaX25</option>
+                        <option value="3">LupaX08</option>
+                    </select>
+                </div>
+
+                <div id="cargando" class="hidden">
+                  
+              </div>
+
+              <div id="resultado"></div>
+                  <div class="resultado-conversion">
+                      <button type="submit" class="boton-resultado" id="convertir-btn">Convertir</button>
+                  </div>
+
+
+            </form>
+
+
+
+    </div> <!--Fin contenido-->
+
+
+</div> <!--Fin contenedor-->
+<body>
+
+    <script src="/js/app.js"></script>
+    
+</body>
+</html>
