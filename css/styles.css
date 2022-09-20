@@ -32,7 +32,9 @@ img {
     max-width: 100%;
     display: block;
 }
-
+li {
+ list-style: none;
+}
 .contenedor {
     max-width: 120rem;
     margin: 0 auto;
@@ -40,7 +42,7 @@ img {
 
 #contenido {
  background:#4895ef;
- height: 80rem;
+ height: 100rem;
  border-bottom-left-radius: 8%;
  border-bottom-right-radius: 8%;
  box-shadow: 0px 21px 46px -15px rgba(0,0,0,1);
@@ -87,9 +89,7 @@ img {
     flex-direction: column;
     align-items: center;
 }
-/* .barritas-lineas label {
-    margin: 1.5rem 0;
-} */
+
 @media (min-width: 769px) { 
     .barritas-lineas label {
         margin: 2.5rem 0 0.2rem 0;
@@ -139,12 +139,31 @@ img {
 }
 @media (min-width: 768px) { 
     .boton-resultado {
-        margin-top: -3rem;
+        margin-top: 4rem;
     }
 }
 .boton-resultado:hover {
     background-color: #02889c;
     cursor: pointer;
+}
+
+/*Listado y Grid */
+.contenido-grid {
+    display: flex;
+    flex-direction:column;
+}
+@media (min-width: 768px) { 
+    .contenido-grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.titulo-listado {
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 2.5rem;
 }
 
 /*Estilos para javaScript*/
@@ -176,32 +195,28 @@ img {
     display: none;
     margin: 0 auto;
 }
-#resultado  {
-    margin-bottom: 40px;
-}
-#resultado div {
-    border: 1px solid #3e48e1;
-    background: #4895ef;
+
+/*Listado Resultados*/
+
+.resultados-lista li {
+    border-bottom: 1px solid #3e48e1;
+    background-color: #4895ef;
     text-align: center;
-    padding: 0  10px 20px 10px;
+    margin: 0 2.5rem;
 }
-#resultado div p {
-    margin-bottom: 0;
+.resultados-lista li:last-of-type{
+    border-bottom: none;
+}
+.resultados-lista li p {
     font-weight: normal;
 }
-#resultado div span {
-    font-weight: bold;
-}
-#resultado div p.header {
-    background-color: #03045e;
-    margin: 0 -10px 10px -10px;
-    color:white;
-    padding: 10px;
-    text-transform: uppercase;
+.resultados-lista li span {
     font-weight: bold;
 }
 
-.mt-10 {
-    margin-top: 1rem;
+.borrar-medida {
+    cursor: pointer;
+    color: red;
+    font-weight: bold;
 }
  

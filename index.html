@@ -15,6 +15,7 @@
         <header class="header">
             <h1 class="titulo">Convertidor</h1>
         </header>
+        <div class="contenido-grid">
             <form action="#" class="formulario" id="convertir">
                 <div class="barritas-lineas">
                     <img src="/img/ocultar-micrometrica.png" alt="Imagen microscopio" class="imagen-barras">
@@ -28,9 +29,9 @@
                     >¿De cuánto fue el aumento?</label>
                     <select class="aumento-select" id="aumento">
                         <option value="">- Seleccionar -</option>
-                        <option value="1">LupaX32</option>
-                        <option value="2">LupaX25</option>
-                        <option value="3">LupaX08</option>
+                        <option value="1">3.2x</option>
+                        <option value="2">2.5x</option>
+                        <option value="3">0.8x</option>
                     </select>
                 </div>
 
@@ -42,10 +43,14 @@
                   <div class="resultado-conversion">
                       <button type="submit" class="boton-resultado" id="convertir-btn">Convertir</button>
                   </div>
-
-
             </form>
-
+            <!--Listados-->
+            <div class="listado">
+                <h2 class="titulo-listado">Medidas</h2>
+                <div id="resultados-lista" class="resultados-lista"></div>
+            </div>
+           
+        </div> <!--Fin Grid-->
 
 
     </div> <!--Fin contenido-->

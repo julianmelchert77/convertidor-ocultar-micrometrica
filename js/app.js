@@ -1,3 +1,7 @@
+// Variables
+const listaResultados = document.querySelector('#resultados-lista');
+let resultadoArr = [];
+
 // Definir valores
 eventListeners()
 function eventListeners() {
@@ -28,7 +32,7 @@ function mostrarMensaje(mensaje, tipo) {
     
     setTimeout( () => {
         div.remove();
-    }, 2000)
+    }, 700)
 }
 
 
@@ -39,6 +43,7 @@ function convertirMedida(e) {
     const lineasSelect = document.querySelector('#lineas-micro').value;
     const aumentoInput = document.querySelector('#aumento').value;
 
+
     if(lineasSelect === '' || aumentoInput === '') {
         mostrarMensaje('Ambos campos son obligatorios', 'error');
         return
@@ -47,28 +52,36 @@ function convertirMedida(e) {
         return;
     }
         // Al ingresar medidas válidas se ejecuta el código  
-        let nombreAumento;
+        let valorAumento;
 
         switch(aumentoInput) {
             case '1':
-                nombreAumento = 0.019;
+                valorAumento = 0.019;
                 break;
             case '2':
-                nombreAumento = 0.024;
+                valorAumento = 0.024;
                 break;
             case '3':
-                nombreAumento = 0.077;
+                valorAumento = 0.077;
                 break;
             default:
                 break;
         }  
 
-    let resultado = lineasSelect * nombreAumento;
-
-    mostrarMensaje('Calculando...', 'correcto'); //revisar si es exito o correcto
-
+    let resultado = lineasSelect * valorAumento;
+    
+    // Crear objeto con el ID
+    const conversionObj = {
+        id: Date.now(),
+        resultado
+    }
+    
+    // Agregar al arreglo de los resultados
+    resultadoArr = [...resultadoArr, conversionObj];
+    console.log(resultadoArr);
+    
     mostrarResultado(resultado);
-
+ 
 
 }
 
@@ -77,23 +90,37 @@ function mostrarResultado(resultado) {
 
         limpiarHTML(); // Limpia el html previo
 
-        // Crear e insertar resultado
-        const div = document.createElement('div');
-        div.classList.add('mt-10');
+        // Asignar nombre a los aumentos
+        const lineasSelect = document.querySelector('#lineas-micro').value;
+        const aumentoInput = document.querySelector('#aumento').value;
+        let nombreAumento;
 
-        div.innerHTML = `
-        <p class="header">Resultado:</p>
-        <p>La medida es de: <span> ${resultado} mm</span></p>
+        switch(aumentoInput) {
+            case '1':
+                nombreAumento = '3.2x';
+                break;
+            case '2':
+                nombreAumento = '2.5x';
+                break;
+            case '3':
+                nombreAumento = '0.8x';
+                break;
+            default:
+                break;
+        }  
+
+        // Crear html listado
+        const li = document.createElement('li');
+
+        li.innerHTML = `
+        <p>${lineasSelect} líneas con <span> ${nombreAumento} </span> de aumento tiene una medida de: <span> ${resultado} mm </span> </p>
         `;
 
-        const resultadoDiv = document.querySelector('#resultado');
-
-
-        setTimeout(() => {
-            resultadoDiv.appendChild(div);
-        }, 2000)
+        listaResultados.appendChild(li);
+        
 
 }
+
 
 
 // Limpiar HTML
